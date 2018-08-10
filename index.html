@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>simple3d</title>
+	<style type="text/css" title="text/css">
+    .wrapper {
+      -webkit-perspective: 800px;
+         -moz-perspective: 800px;
+           -o-perspective: 800px;
+              perspective: 800px;
+    }
+        
+    #flippingcard {
+      width: 300px;
+      height: 360px;
+      position: relative;
+
+        /* cover transdorm duration all browsers*/
+      -webkit-transition: -webkit-transform 1s;
+         -moz-transition: -moz-transform 1s;
+           -o-transition: -o-transform 1s;
+              transition: transform 1s;
+        
+      -webkit-transform-style: preserve-3d;
+         -moz-transform-style: preserve-3d;
+           -o-transform-style: preserve-3d;
+              transform-style: preserve-3d;
+    }
+   
+    #flippingcard .card {
+      display: block;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top:0;
+/*        cover visibility in all browsers*/
+      -webkit-backface-visibility: hidden;
+         -moz-backface-visibility: hidden;
+           -o-backface-visibility: hidden;
+              backface-visibility: hidden;
+    }
+    #flippingcard .front {
+      background: blue;
+    }
+    #flippingcard .back {
+      background: #8ea8cb;
+        /*    covers all browsers*/
+      -webkit-transform: rotateY( 180deg );
+         -moz-transform: rotateY( 180deg );
+           -o-transform: rotateY( 180deg );
+              transform: rotateY( 180deg );
+    }
+        #flippingcard.flipped {
+    /* cover animation in all browsers*/
+      -webkit-transform: rotateY( 180deg );
+         -moz-transform: rotateY( 180deg );
+           -o-transform: rotateY( 180deg );
+              transform: rotateY( 180deg );
+    }
+	</style>
+
+</head>
+<body>
+	<div class="wrapper">
+		<div id="flippingcard" class="">
+			<div class="front card"></div>
+			<div class="back card"></div>
+		</div>
+	</div>
+</body>
+<!--The JS/jQuery for the flip on hove eventr-->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function cardFlip() {
+		$("#flippingcard").hover(function() {$(this).toggleClass("flipped");
+		});
+	});	
+</script>
+</html>
